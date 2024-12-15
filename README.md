@@ -12,12 +12,35 @@ Este es el backend API para el sistema de gestión de productos aeroespaciales.
 
 ## Estructura del proyecto
 
-El proyecto se divide en los siguientes módulos:
-
-- API (backend)
-- Web (frontend)
-- Infraestructura (deployment en AWS)
-- Documentación
+```
+/
+− src/
+    �"H __init__.py
+    − main.py
+    − config.py
+    − api/
+    |   − __init__.py
+    |   − routes.py
+    |   − controllers/
+    |       − __init__.py
+    |       − product_controller.py
+    − services/
+    |   − __init__.py
+    |   − product_service.py
+    − models/
+    |   − __init__.py
+    |   − product.py
+    − repositories/
+        − __init__.py
+        − product_repository.py
+− tests/
+    − __init__.py
+    − test_api.py
+    − test_services.py
+    − test_models.py
+− requirements.txt
+‒ README.md
+```
 
 ## Desarrollo y deployment
 
@@ -28,7 +51,7 @@ pip install -r requirements.txt
 flask run
 ```
 
-Para el deployment en AWS, utiliza los archivos de infraestructura en el repositorio de infraestructura.
+Para el deployment en AWS Lambda, se utilizará el Serverless Framework. La configuración específica se encuentra en el archivo `serverless.yml`.
 
 ## Contribución
 
