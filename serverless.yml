@@ -1,0 +1,29 @@
+service: aero-product-manager-api
+
+provider:
+  name: aws
+  runtime: python3.9
+  region: us-east-1
+  stage: ${opt:stage, 'dev''’
+
+functions:
+  api:
+    handler: src.main.lambda_handler
+    events:
+      - http:
+          path: /products
+          method: any
+
+plugins:
+  - serverless-python-requirements
+
+package:
+  individually: true
+  exclude:
+    - .git/*
+    - .github/*
+    - tests/*
+
+custom:
+  pythonRequirements:
+    dockerizedPip: true
